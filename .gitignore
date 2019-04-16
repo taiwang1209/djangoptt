@@ -1,0 +1,3 @@
+beauty_env/
+*.sqlite3
+__pycache__/
