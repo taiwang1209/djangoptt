@@ -36,15 +36,16 @@
         </div>
         <div class="album py-5 bg-light">
             <div class="container">
-                <div class="row">
-                    {%for img in post %}
-                    <div class="col-md-4">
-                        <div class="card mb-4 shadow-sm">
-                            <img class="bd-placeholder-img card-img-top" width="50%" height="50%" src="{{img}}">
-                        </div>
+                {% for obj in objs %}
+                <h1 style="width:100%;">{{obj}}</h1>
+                <div class="card-columns">
+                    {% for url in obj.articleimage_set.all %}
+                    <div class="card">
+                        <img class="card-img" src="{{url.ImageURL}}" alt="Card image">
                     </div>
-                    {%endfor%}
+                    {% endfor %}
                 </div>
+                {% endfor %}
             </div>
         </div>
     </main>
