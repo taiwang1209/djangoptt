@@ -1,14 +1,17 @@
 from django.db import models
 
-# Create your models here.
+
 class PttArticle(models.Model):
-    ArticleTitle = models.CharField(max_length=100)
-    ArticleDate = models.CharField(max_length=100)
+    article_title = models.CharField(max_length=100)
+    article_date = models.CharField(max_length=100)
+
     def __str__(self):
-        return self.ArticleTitle
+        return self.article_title
+
 
 class ArticleImage(models.Model):
-    ImageTitle = models.ForeignKey('PttArticle',on_delete=models.CASCADE,default='')
-    ImageURL = models.URLField(max_length=100)
+    image_title = models.ForeignKey('PttArticle', related_name='article_images', on_delete=models.CASCADE, default='')
+    image_url = models.URLField(max_length=100)
+
     def __str__(self):
-        return self.ImageTitle.ArticleTitle
+        return self.image_title.article_title

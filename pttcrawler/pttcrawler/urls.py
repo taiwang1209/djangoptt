@@ -15,11 +15,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from index.views import get_index,show,gallery,delete
+from django.conf.urls import url, include
+
+from rest_framework.routers import DefaultRouter
+
+from index.views import get_index, show, gallery, delete, PttArticleViewSet
+
+
+router = DefaultRouter()
+router.register(r'', PttArticleViewSet)
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('index/', get_index),
     path('index/show/', show),
     path('index/gallery/', gallery),
     path('index/delete/', delete),
+    path('index/api/', include(router.urls)),
 ]
