@@ -9,15 +9,21 @@ from index.models import PttArticle, ArticleImage
 
 from bs4 import BeautifulSoup
 
-from index.serializers import PttArticleSerializer, ArticleImageSerializer
+from index.serializers import PttArticleSerializer, ArticleImageSerializer, ImagesSerializer
 
 from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticated
 
 
 class PttArticleViewSet(viewsets.ModelViewSet):
     queryset = PttArticle.objects.all()
     serializer_class = PttArticleSerializer
+    permission_classes = (IsAuthenticated,)
 
+class ImagesViewSet(viewsets.ModelViewSet):
+    queryset = ArticleImage.objects.all()
+    serializer_class = ImagesSerializer
+    permission_classes = (IsAuthenticated,)
 
 def get_index(request):
     return render(request, 'index.html')
