@@ -25,5 +25,5 @@ class DailyTran(models.Model):
     name = models.ForeignKey('Product', related_name='product', on_delete=models.CASCADE, default='')
     up_price = models.CharField(max_length=100)
     low_price = models.CharField(max_length=100)
-    created_time = models.DateTimeField(auto_now_add=False, auto_now=True)
-    update_time = models.DateTimeField(auto_now_add=True, auto_now=False)
+    created_time = models.DateTimeField(auto_now_add=True, auto_now=False)
+    update_time = models.DateTimeField(auto_now_add=False, auto_now=True)

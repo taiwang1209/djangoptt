@@ -19,7 +19,10 @@ from django.conf.urls import url, include
 
 from rest_framework import routers
 from rest_framework.authtoken import views
+
 from index.views import get_index, show, gallery, delete, PttArticleViewSet, ImagesViewSet
+
+from aprp.views import CategoryList, MarketList, ProductList, DailyTranList
 
 
 router = routers.SimpleRouter()
@@ -32,7 +35,11 @@ urlpatterns = [
     path('index/show/', show),
     path('index/gallery/', gallery),
     path('index/delete/', delete),
-    url('index/api/', include(router.urls)),
+    url('api/', include(router.urls)),
+    url(r'^api/category/$', CategoryList.as_view()),
+    url(r'^api/market/$', MarketList.as_view()),
+    url(r'^api/product/$', ProductList.as_view()),
+    url(r'^api/dailytran/$', DailyTranList.as_view()),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^api-token-auth/', views.obtain_auth_token),
 ]
