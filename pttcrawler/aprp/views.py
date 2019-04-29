@@ -30,7 +30,7 @@ class ProductList(ListCreateAPIView):
     permission_classes = (IsAuthenticated,)
 
 
-class DailyTranList(APIView):
+class DailyTranList(ListCreateAPIView):
     queryset = DailyTran.objects.all()
     serializer_class = DailyTranSerializer
     permission_classes = (IsAuthenticated,)

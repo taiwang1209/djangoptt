@@ -9,4 +9,8 @@
 -   model: aprp.market
     pk: 3
     fields:
-        name: "\u6843\u5712\u5e02"
+        name: "桃園市"
+-   model: aprp.market
+    pk: 4
+    fields:
+        name: "新竹市"

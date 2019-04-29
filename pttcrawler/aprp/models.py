@@ -22,8 +22,11 @@ class Product(models.Model):
 
 
 class DailyTran(models.Model):
-    name = models.ForeignKey('Product', related_name='product', on_delete=models.CASCADE, default='')
+    name = models.ForeignKey('Product', related_name='dailytrans', on_delete=models.CASCADE, default='')
     up_price = models.CharField(max_length=100)
     low_price = models.CharField(max_length=100)
     created_time = models.DateTimeField(auto_now_add=True, auto_now=False)
     update_time = models.DateTimeField(auto_now_add=False, auto_now=True)
+
+    def __str__(self):
+        return self.name.name

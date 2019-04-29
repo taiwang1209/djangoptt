@@ -20,10 +20,12 @@ class PttArticleViewSet(viewsets.ModelViewSet):
     serializer_class = PttArticleSerializer
     permission_classes = (IsAuthenticated,)
 
+
 class ImagesViewSet(viewsets.ModelViewSet):
     queryset = ArticleImage.objects.all()
     serializer_class = ImagesSerializer
     permission_classes = (IsAuthenticated,)
+
 
 def get_index(request):
     return render(request, 'index.html')
